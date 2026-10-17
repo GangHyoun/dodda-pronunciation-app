@@ -1,0 +1,63 @@
+import 'package:flutter/material.dart';
+
+// 문자열 비교 로직을 수행하는 위젯 함수
+Widget buildComparisonText(String currentText, String compareSentence, double fontSize) {
+  // 문장 정규화
+  String normalizedCurrentText = _normalize(currentText); //사용자가 발음한 문장
+  String normalizedCompareSentence = _normalize(compareSentence); //읽은 문장
+
+//공백 기준으로 어절 분리 후 리스트에 저장
+  List<String> words = currentText.split(' ');
+  List<String> expectedWords = compareSentence.split(' ');
+  List<String> normalizedWords = normalizedCurrentText.split(' ');
+  List<String> normalizedCompareWords = normalizedCompareSentence.split(' ');
+
+  List<Widget> comparisonWidgets = [];
+
+  for (int i = 0; i < words.length; i++) {
+    // 읽은 어절 개수보다 발음한 어절의 개수가 짧거나 같은 경우
+    if (i < expectedWords.length) {
+      comparisonWidgets.add(
+        Text(
+          words[i] + ' ',
+          style: TextStyle(
+            color: normalizedWords[i] == normalizedCompareWords[i]
+                ? Colors.black
+                : Colors.red,
+            fontSize: fontSize,
+          ),
+          softWrap: true, // 텍스트 자동 줄바꿈
+        ),
+      );
+      // 읽은 어절 개수보다 발음한 어절의 개수가 긴 경우
+    } else {
+      comparisonWidgets.add(
+        Text(
+          words[i] + ' ',
+          style: TextStyle(color: Colors.red, fontSize: fontSize),
+          softWrap: true, // 텍스트 자동 줄바꿈
+        ),
+      );
+    }
+  }
+
+  return Wrap(
+    children: comparisonWidgets,
+  );
+}
+
+//정규화 함수
+String _normalize(String text) {
+  return text.toLowerCase().replaceAll(RegExp(r'\-|\.|,|!|\?|"'), '');
+}
+
+//문장 일치 확인
+bool compareCheck(currentSentence, userSentence) {
+  String normalizedUserSentence = _normalize(userSentence); //사용자가 발음한 문장
+  String normalizedCurrentSentence = _normalize(currentSentence); //읽은 문장
+
+  if (normalizedUserSentence == normalizedCurrentSentence) {
+    return true;
+  } else
+    return false;
+}

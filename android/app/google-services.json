@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "667973923086",
+    "firebase_url": "https://capstone-ddd-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "capstone-ddd",
+    "storage_bucket": "capstone-ddd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667973923086:android:42d8d1dc5700e9a113a75f",
+        "android_client_info": {
+          "package_name": "com.example.ddd_02"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7b1CICHYMJn_HaS_F2oiom5_uPNSHSpM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667973923086:android:a6bcb202e9f1c75813a75f",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7b1CICHYMJn_HaS_F2oiom5_uPNSHSpM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
